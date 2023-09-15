@@ -9,11 +9,17 @@
 - 많은 사람이 동시에 웹 문서에 접근 할 경우 원천 서버의 직접 장애를 막을 수 있음
 ### 거리로 인한 지연
 - 클라이언트와 서버와의 물리적인 거리가 매우 클 경우 빛의 속도로 신호가 이동하더라도 유의미한 지연이 발생될 수 있음
+<img width="485" alt="image" src="https://github.com/osan-study/HttpStudy/assets/27123002/9fa73af9-14da-439c-930b-04a16ba34da1">
+
 ### 적중과 부적중
 - 캐시에 요청이 도착했을 때 요청에 대응하는 사본이 있다면 캐시에서 전달(hit), 사본이 없다면 원 서버로 전달(miss)
+<img width="480" alt="image" src="https://github.com/osan-study/HttpStudy/assets/27123002/887abc0d-f67b-496f-b4a9-7edc0dfcb9d9">
+
 #### 재검사
 - 재검사가 필요할 때 원천 서버에 작은 재검사 요청을 보내고 콘텐츠가 변경되지 않았으면 서버는 304 응답을 보낸다. 사본이 유효함을 확인했으므로 사본에 신선하다고 표시한 뒤 클라이언트에게 제공한다. 서버로부터 리소스를 전달 할 필요가 없으므로 비교적 빠르다.
 - [If-Modified-Since](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/If-Modified-Since) 헤더를 추가하여 요청하면 지정된 날짜 이후 수정된 경우에 요청된 리소스를 전달하고 수정되지 않았으면 리소스 없이 304 응답을 보낸다. 만약 리소스가 삭제되었다면 404를 돌려보내고 캐시는 사본을 삭제한다.
+<img width="483" alt="image" src="https://github.com/osan-study/HttpStudy/assets/27123002/c1fd558e-a9c1-4fde-bb46-0523f179a250">
+
 #### 적중률
 - 받은 요청 대비 적중한 요청의 비율으로 40% 수준이면 웹 캐시로 괜찮은 편이다. 바이트 단위로 적중률을 관리 하는 경우도 있다.
 #### 적중과 부적중의 구별
@@ -46,9 +52,12 @@
 #### 조건부 메서드와의 재검사
 조건부 GET 요청으로 조건에 해당 될 때 캐시 재 검사를 진행 할 수 있다.
 - If-Modified-Since: Last-Modified 헤더와 비교하여 주어진 날짜보다 Last-Modified 날짜가 크다면 평범하게 요청을 처리하고 아니라면 304를 리턴한다.
+<img width="479" alt="image" src="https://github.com/osan-study/HttpStudy/assets/27123002/60e92073-bddb-4f75-a3c6-6ae5f3c09d96">
+
 - If-None-Match
   - tag를 제공하고 원 서버에게 tag가 바뀌었을 경우에 새 객체를 달라고 요청한다.
   - 여러개의 사본을 가지고 있는 경우 여러개의 tag를 포함시킬 수 있다.
+<img width="482" alt="image" src="https://github.com/osan-study/HttpStudy/assets/27123002/45f5488f-7e93-4548-acc3-ae25e49cb131">
 
 #### 약한 검사기와 강한 검사기
 - 약한 검사기는 어느정도 콘텐츠 변경을 허용하지만 강한 검사기는 콘텐츠가 조금이라도 바뀔 때마다 사본을 무효화 시킨다.
