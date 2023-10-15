@@ -2,7 +2,7 @@
 
 메세지는 항상 인바운드로 이동하고 아웃바운드로 복귀한다
 
-![[Pasted image 20230816184620.png]]
+![image](https://github.com/osan-study/HttpStudy/assets/27123002/0e99715d-f53c-4726-bab7-80414dd27200)
 
 #### 메세지의 각 부분
 
@@ -12,7 +12,7 @@ HTTP 메세지는 시작줄, 헤더, 본문으로 이루어진다
 - 헤더 : 본문에 담긴 **Content**의 종류와 길이
 - 본문 : 내용을 포함
 
-![[Pasted image 20230816184853.png]]
+![image](https://github.com/osan-study/HttpStudy/assets/27123002/df3bf67d-0edf-491c-b881-16bf5272ad9d)
 
 #### 메서드
 
